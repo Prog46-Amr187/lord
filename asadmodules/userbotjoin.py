@@ -40,7 +40,7 @@ async def join_group(client, message):
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"🛑 **Fʟᴏᴏᴅ ᴡᴀɪᴛ ᴇʀʀᴏʀ** 🛑 \n\n**Usᴇʀʙᴏᴛ ᴄᴀɴɴᴏᴛ ᴊᴏɪɴᴅ ʏᴏᴜʀ ᴄʜᴀᴛ ᴀᴅᴅ ᴀssɪsᴛᴀɴᴛ @{ASSISTANT_NAME} ᴍᴀɴᴜᴀʟʟʏ,
+            f"🛑 **Fʟᴏᴏᴅ ᴡᴀɪᴛ ᴇʀʀᴏʀ** 🛑 \n\n**Usᴇʀʙᴏᴛ ᴄᴀɴɴᴏᴛ ᴊᴏɪɴᴅ ʏᴏᴜʀ ᴄʜᴀᴛ ᴀᴅᴅ ᴀssɪsᴛᴀɴᴛ @{ASSISTANT_NAME} ᴍᴀɴᴜᴀʟʟʏ",
         )
         return
     await message.reply_text(
