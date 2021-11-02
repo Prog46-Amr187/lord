@@ -57,6 +57,11 @@
             "required": true,
             "value": "Give_Me_Heart"
         },
+        "LOG_CHANNEL": {
+            "description": "create a private channel and get the channel id, add your bot as admin to the channel too",
+            "required": true,
+            "value": ""
+        },
         "OWNER_NAME": {
             "description": "fill with your telegram account username without @",
             "required": true,
