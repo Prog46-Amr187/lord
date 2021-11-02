@@ -21,7 +21,6 @@ UPDATES_CHANNEL = getenv("UPDATES_CHANNEL", "Give_Me_Heart")
 SUDO_USERS = list(map(int, getenv("SUDO_USERS").split()))
 LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL"))
 BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", "False"))
-
 COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! .").split())
 ALIVE_IMG = getenv("ALIVE_IMG", "https://telegra.ph/file/c97bf9418d089092d8429.jpg")
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "60"))
