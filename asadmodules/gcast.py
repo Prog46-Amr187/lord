@@ -6,7 +6,6 @@
 
 
 import asyncio
-
 from pyrogram import Client
 from pyrogram import filters
 from pyrogram.types import Dialog
@@ -16,6 +15,7 @@ from aiohttp import ClientSession
 from config import SUDO_USERS, BOT_TOKEN
 from pyrogram.errors import UserAlreadyParticipant
 from config import SUDO_USERS
+from asadmusic.asadmusic import client as USER
 
 @Client.on_message(filters.command(["broadcast"]))
 async def broadcast(_, message: Message):
@@ -24,23 +24,23 @@ async def broadcast(_, message: Message):
     if message.from_user.id not in SUDO_USERS:
         return
     else:
-        wtf = await message.reply("`Sᴛᴀʀᴛɪɴɢ ᴀ ʙʀᴏᴀᴅᴄᴀsᴛ...`")
+        wtf = await message.reply("**Sᴛᴀʀᴛɪɴɢ ᴀ ʙʀᴏᴀᴅᴄᴀsᴛ...**")
         if not message.reply_to_message:
-            await wtf.edit("Pʟᴇᴀsᴇ Rᴇᴘʟʏ ᴛᴏ ᴀ Mᴇssᴀɢᴇ ᴛᴏ ʙʀᴏᴀᴅᴄᴀsᴛ...!")
+            await wtf.edit("**Pʟᴇᴀsᴇ Rᴇᴘʟʏ ᴛᴏ ᴀ Mᴇssᴀɢᴇ ᴛᴏ ʙʀᴏᴀᴅᴄᴀsᴛ...!**")
             return
         lmao = message.reply_to_message.text
         async for dialog in USER.iter_dialogs():
             try:
                 await USER.send_message(dialog.chat.id, lmao)
                 sent = sent+1
-                await wtf.edit(f"`Bʀᴏᴀᴅᴄᴀsᴛɪɴɢ...` \n\n**Sᴇɴᴛ ᴛᴏ:** `{sent}` Cʜᴀᴛs \n**Fᴀɪʟᴇᴅ ɪɴ:** {failed} Cʜᴀᴛs")
+                await wtf.edit(f"**Bʀᴏᴀᴅᴄᴀsᴛɪɴɢ...** \n\n**Sᴇɴᴛ ᴛᴏ:** `{sent}` Cʜᴀᴛs \n**Fᴀɪʟᴇᴅ ɪɴ:** {failed} Cʜᴀᴛs")
                 await asyncio.sleep(3)
             except:
                 failed=failed+1
                 #await wtf.edit(f"`broadcasting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
                 
             
-        await message.reply_text(f"`Broadcast Finished ` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
+        await message.reply_text(f"**Broadcast Finished** \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
 
 
 @Client.on_message(filters.command("fukall") &
