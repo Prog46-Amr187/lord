@@ -87,7 +87,7 @@ async def start_(client: Client, message: Message):
                         "👥 Gʀᴏᴜᴘ 👥︎", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Cʜᴀɴɴᴇʟ 📣", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📣 Rᴇᴘᴏ 📣", url=f"https://github.com/jankarikiduniya/Rocks-Video-Streaming}"
                     ),
                 ],
                 [
