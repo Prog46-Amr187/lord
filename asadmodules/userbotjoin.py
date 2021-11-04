@@ -14,7 +14,7 @@ from pyrogram.errors import UserAlreadyParticipant
 
 
 @Client.on_message(
-    command(["userbotjoin", f"userbotjoin@{BOT_USERNAME}"]) & ~filters.private & ~filters.bot
+    command(["play", f"play@{BOT_USERNAME}"]) & ~filters.private & ~filters.bot
 )
 @authorized_users_only
 @errors
@@ -40,7 +40,7 @@ async def join_group(client, message):
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"🛑 **Fʟᴏᴏᴅ ᴡᴀɪᴛ ᴇʀʀᴏʀ** 🛑 \n\n**Usᴇʀʙᴏᴛ ᴄᴀɴɴᴏᴛ ᴊᴏɪɴᴅ ʏᴏᴜʀ ᴄʜᴀᴛ ᴀᴅᴅ ᴀssɪsᴛᴀɴᴛ @{ASSISTANT_NAME} ᴍᴀɴᴜᴀʟʟʏ",
+            f"🛑 **Fʟᴏᴏᴅ ᴡᴀɪᴛ ᴇʀʀᴏʀ** 🛑 \n\n**Usᴇʀʙᴏᴛ ᴄᴀɴɴᴏᴛ ᴊᴏɪɴᴅ ʏᴏᴜʀ ᴄʜᴀᴛ ᴀᴅᴅ ᴀssɪsᴛᴀɴᴛ @{ASSISTANT_NAME} ᴍᴀɴᴜᴀʟʟʏ,
         )
         return
     await message.reply_text(
