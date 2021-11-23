@@ -1,4 +1,4 @@
-## ❤️ ROCKS MUSIC BOT 2.0 ❤️
+## ❤️ BOT NOT WORKING ❤️
 
 ROCKS Music Is A Telegram Bot Project That's Allow You To Play Music On Telegram Voice Chat Group.
 
