@@ -1,6 +1,6 @@
 {
-    "name": "Rocks Video& Audio Stream Bot",
-    "description": "Rocks Telegram Bot For Streaming Video & Music Trought The Telegram Group Video Chat, Powered By Pytgcalls And Pyrogram",
+    "name": "Dr Music Streaming Bot",
+    "description": "Dr Music Video Review Telegram Bot For Streaming Video & Music Trought The Telegram Group Video Chat, Powered By Pytgcalls And Pyrogram",
     "logo": "https://telegra.ph/file/336e006861a2667a7663f.jpg",
     "keywords": [
         "pytgcalls",
@@ -8,8 +8,8 @@
         "video stream"
     ],
     "website": "https://t.me/Dr_Asad_Ali",
-    "repository": "https://github.com/jankarikiduniya/Rocks-Video-Streaming",
-    "success_url": "https://t.me/Give_Me_Heart"",
+    "repository": "https://github.com/jankarikiduniya/Dr-Music-Video-Streaming",
+    "success_url": "https://t.me/Give_Me_Heart",
     "env": {
         "API_ID": {
             "description": "your API_ID from my.telegram.org",
@@ -36,13 +36,12 @@
             "required": true
         },
         "SESSION_NAME": {
-            "description": "fill with the pyrogram String Session generate from here @Pyrogram_String_Bot",
+            "description": "fill with the pyrogram String Session",
             "required": true
         },
         "SUDO_USERS": {
             "description": "list of user ids to be added to sudo member list, or just fill with your id",
             "required": true
-            "value": "1342820594"
         },
         "GROUP_SUPPORT": {
             "description": "if you have group, then fill the group username here without @",
@@ -52,7 +51,7 @@
         "UPDATES_CHANNEL": {
             "description": "if you have channel, then fill the channel username here without @",
             "required": true,
-            "value": "Give_Me_Heart"
+            "value": "AsadSupport"
         },
         "OWNER_NAME": {
             "description": "fill with your telegram account username without @",
@@ -62,7 +61,7 @@
         "ALIVE_NAME": {
             "description": "fill with your telegram account nickname/name",
             "required": true,
-            "value": "Give_Me_Heart"
+            "value": "Asad Ali"
         }
     },
     "addons": [],
