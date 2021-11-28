@@ -4,7 +4,6 @@
 # Owner Asad + Harshit
 
 
-
 from typing import Callable
 from pyrogram import Client
 from pyrogram.types import Message
@@ -26,7 +25,6 @@ def errors(func: Callable) -> Callable:
 
     return decorator
 
-# Roses are red, Violets are blue, A face like yours, Belongs in a zoo.
 
 def authorized_users_only(func: Callable) -> Callable:
     async def decorator(client: Client, message: Message):
@@ -40,6 +38,8 @@ def authorized_users_only(func: Callable) -> Callable:
                 return await func(client, message)
 
     return decorator
+
+# Roses are red, Violets are blue, A face like yours, Belongs in a zoo.
 
 
 def sudo_users_only(func: Callable) -> Callable:
@@ -61,5 +61,7 @@ def humanbytes(size):
         size /= power
         raised_to_pow += 1
     return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "B"
+
+
 
 # Roses are red, Violets are blue, A face like yours, Belongs in a zoo.

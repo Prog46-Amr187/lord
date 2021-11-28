@@ -3,7 +3,6 @@
 # Rocks © @Dr_Asad_Ali © Rocks
 # Owner Asad + Harshit
 
-
 from typing import List
 from pyrogram.types import Chat
 from cache.admins import get as gett, set
@@ -20,8 +19,9 @@ async def get_administrators(chat: Chat) -> List[int]:
         for administrator in administrators:
             if administrator.can_manage_voice_chats:
                 to_set.append(administrator.user.id)
-                
-# Roses are red, Violets are blue, A face like yours, Belongs in a zoo.
 
         set(chat.id, to_set)
         return await get_administrators(chat)
+
+                
+# Roses are red, Violets are blue, A face like yours, Belongs in a zoo.
