@@ -41,7 +41,7 @@ async def ytsearch(_, message: Message):
 
     try:
         if len(message.command) < 2:
-            await message.reply_text("/search **ɢɪᴠᴇ ᴍᴇ sᴏᴍᴇᴛʜɪɴɢ ᴛᴏ sᴇᴀʀᴄʜ !**")
+            await message.reply_text("/search **ɴᴇᴇᴅ sᴏɴɢ ɴᴀᴍᴇ !**")
             return
         query = message.text.split(None, 1)[1]
         m = await message.reply_text("🔎 **Searching...**")
@@ -49,10 +49,10 @@ async def ytsearch(_, message: Message):
         i = 0
         text = ""
         while i < 5:
-            text += f"🏷 **Nᴀᴍᴇ:** __{results[i]['title']}__\n"
-            text += f"⏱ **Dᴜʀᴀᴛɪᴏɴ:** `{results[i]['duration']}`\n"
-            text += f"👀 **Vɪᴇᴡs:** `{results[i]['views']}`\n"
-            text += f"📣 **Cʜᴀɴɴᴇʟ:** {results[i]['channel']}\n"
+            text += f"🏷 **ɴᴀᴍᴇ:** __{results[i]['title']}__\n"
+            text += f"⏱ **ᴅᴜʀᴀᴛɪᴏɴ:** `{results[i]['duration']}`\n"
+            text += f"👀 **ᴠɪᴇᴡs:** `{results[i]['views']}`\n"
+            text += f"📣 **ᴄʜᴀɴɴᴇʟ:** {results[i]['channel']}\n"
             text += f"🔗: https://www.youtube.com{results[i]['url_suffix']}\n\n"
             i += 1
         await m.edit(text, reply_markup=keyboard, disable_web_page_preview=True)

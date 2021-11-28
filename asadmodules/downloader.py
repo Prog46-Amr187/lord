@@ -3,6 +3,7 @@
 # Rocks © @Dr_Asad_Ali © Rocks
 # Owner Asad + Harshit
 
+
 from __future__ import unicode_literals
 
 import asyncio
@@ -23,7 +24,7 @@ from pyrogram.types import Message
 from youtube_search import YoutubeSearch
 from yt_dlp import YoutubeDL
 
-from config import BOT_USERNAME as bn
+from config import BOT_USERNAME, REPO_OWNER as bn
 from rocksdriver.decorators import humanbytes
 from rocksdriver.filters import command, other_filters
 
@@ -37,12 +38,11 @@ ydl_opts = {
     'quite': True
 }
 
-# Roses are red, Violets are blue, A face like yours, Belongs in a zoo.
 
 @Client.on_message(command(["song", f"song@{bn}"]) & ~filters.edited)
 def song(_, message):
     query = " ".join(message.command[1:])
-    m = message.reply("🔎 Fɪɴᴅɪɴɢ sᴏɴɢ...")
+    m = message.reply("🔎 **𝕱𝖎𝖓𝖉𝖎𝖓𝖌 𝖘𝖔𝖓𝖌**...")
     ydl_ops = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -55,21 +55,21 @@ def song(_, message):
         duration = results[0]["duration"]
 
     except Exception as e:
-        m.edit("❄1�71ￄ1�77 **Sᴏɴɢ ɴᴏᴛ ғᴏᴜɴᴅ**.\n\n**Pʟᴇᴀsᴇ ɢɪᴠᴇ ᴠᴀʟɪᴅ sᴏɴɢ ɴᴀᴍᴇ**.")
+        m.edit("❌ 𝕾𝖔𝖓𝖌 𝖓𝖔𝖙 𝖋𝖔𝖚𝖓𝖉.\n\n𝕻𝖑𝖊𝖆𝖘𝖊 𝖊𝖓𝖙𝖊𝖗 𝖈𝖔𝖗𝖗𝖊𝖈𝖙 𝖘𝖔𝖓𝖌 𝖓𝖆𝖒𝖊.")
         print(str(e))
         return
-    m.edit("📥 Dᴏᴡɴʟᴏᴀᴅɪɴɢ ғɪʟᴇ...")
+    m.edit("📥 𝕯𝖔𝖜𝖓𝖑𝖔𝖆𝖉𝖎𝖓𝖌 𝖋𝖎𝖑𝖊...")
     try:
         with yt_dlp.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"**🎧 Uᴘʟᴏᴀᴅᴇʀ @Dr_Asad_Ali**"
+        rep = f"**🎧 𝖀𝖕𝖑𝖔𝖆𝖉𝖊𝖗 [ᴋɪɴɢ](https://t.me/{REPO_OWNER})**"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
             secmul *= 60
-        m.edit("📤 Uᴘʟᴏᴀᴅɪɴɢ ғɪʟᴇ...")
+        m.edit("📤 𝖀𝖕𝖑𝖔𝖆𝖉𝖎𝖓𝖌 𝖋𝖎𝖑𝖊...")
         message.reply_audio(
             audio_file,
             caption=rep,
@@ -80,7 +80,7 @@ def song(_, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❄1�71ￄ1�77 **Eʀʀᴏʀ Wᴀɪᴛ ᴛᴏ ғɪx**")
+        m.edit("❌ 𝕰𝖗𝖗𝖔𝖗")
         print(e)
 
     try:
@@ -88,140 +88,6 @@ def song(_, message):
         os.remove(thumb_name)
     except Exception as e:
         print(e)
-
-
-def get_text(message: Message) -> [None, str]:
-    text_to_return = message.text
-    if message.text is None:
-        return None
-    if " " not in text_to_return:
-        return None
-
-    try:
-        return message.text.split(None, 1)[1]
-    except IndexError:
-        return None
-
-
-async def progress(current, total, message, start, type_of_ps, file_name=None):
-    now = time.time()
-    diff = now - start
-    if round(diff % 10.00) == 0 or current == total:
-        percentage = current * 100 / total
-        speed = current / diff
-        elapsed_time = round(diff) * 1000
-        if elapsed_time == 0:
-            return
-        time_to_completion = round((total - current) / speed) * 1000
-        estimated_total_time = elapsed_time + time_to_completion
-        progress_str = "{0}{1} {2}%\n".format(
-            "".join("🔴" for _ in range(math.floor(percentage / 10))),
-            "".join("🔘" for _ in range(10 - math.floor(percentage / 10))),
-            round(percentage, 2),
-        )
-
-        tmp = progress_str + "{0} of {1}\nETA: {2}".format(
-            humanbytes(current), humanbytes(total), time_formatter(estimated_total_time))
-        if file_name:
-            try:
-                await message.edit(
-                    "{}\n**File Name:** `{}`\n{}".format(type_of_ps, file_name, tmp)
-                )
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-            except MessageNotModified:
-                pass
-        else:
-            try:
-                await message.edit("{}\n{}".format(type_of_ps, tmp))
-            except FloodWait as e:
-                await asyncio.sleep(e.x)
-            except MessageNotModified:
-                pass
-
-
-def get_user(message: Message, text: str) -> [int, str, None]:
-    asplit = None if text is None else text.split(" ", 1)
-    user_s = None
-    reason_ = None
-    if message.reply_to_message:
-        user_s = message.reply_to_message.from_user.id
-        reason_ = text or None
-    elif asplit is None:
-        return None, None
-    elif len(asplit[0]) > 0:
-        user_s = int(asplit[0]) if asplit[0].isdigit() else asplit[0]
-        if len(asplit) == 2:
-            reason_ = asplit[1]
-    return user_s, reason_
-
-
-def get_readable_time(seconds: int) -> str:
-    count = 0
-    ping_time = ""
-    time_list = []
-    time_suffix_list = ["s", "m", "h", "days"]
-
-    while count < 4:
-        count += 1
-        remainder, result = divmod(
-            seconds, 60) if count < 3 else divmod(
-            seconds, 24)
-        if seconds == 0 and remainder == 0:
-            break
-        time_list.append(int(result))
-        seconds = int(remainder)
-
-    for x in range(len(time_list)):
-        time_list[x] = str(time_list[x]) + time_suffix_list[x]
-    if len(time_list) == 4:
-        ping_time += time_list.pop() + ", "
-
-    time_list.reverse()
-    ping_time += ":".join(time_list)
-
-    return ping_time
-
-
-def time_formatter(milliseconds: int) -> str:
-    seconds, milliseconds = divmod(int(milliseconds), 1000)
-    minutes, seconds = divmod(seconds, 60)
-    hours, minutes = divmod(minutes, 60)
-    days, hours = divmod(hours, 24)
-    tmp = (
-        ((str(days) + " day(s), ") if days else "")
-        + ((str(hours) + " hour(s), ") if hours else "")
-        + ((str(minutes) + " minute(s), ") if minutes else "")
-        + ((str(seconds) + " second(s), ") if seconds else "")
-        + ((str(milliseconds) + " millisecond(s), ") if milliseconds else "")
-    )
-    return tmp[:-2]
-
-
-def get_file_extension_from_url(url):
-    url_path = urlparse(url).path
-    basename = os.path.basename(url_path)
-    return basename.split(".")[-1]
-
-
-async def download_song(url):
-    song_name = f"{randint(6969, 6999)}.mp3"
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as resp:
-            if resp.status == 200:
-                f = await aiofiles.open(song_name, mode="wb")
-                await f.write(await resp.read())
-                await f.close()
-    return song_name
-
-
-def time_to_seconds(times):
-    stringt = str(times)
-    return sum(
-        int(x) * 60 ** i for i,
-        x in enumerate(
-            reversed(
-                stringt.split(":"))))
 
 
 @Client.on_message(
@@ -252,14 +118,14 @@ async def vsong(client, message):
     except Exception as e:
         print(e)
     try:
-        msg = await message.reply("📥 **Dᴏᴡɴʟᴏᴀᴅɪɴɢ ᴠɪᴅᴇᴏ...**")
+        msg = await message.reply("📥 **𝕯𝖔𝖜𝖓𝖑𝖔𝖆𝖉𝖎𝖓𝖌 𝖛𝖎𝖉𝖊𝖔...**")
         with YoutubeDL(ydl_opts) as ytdl:
             ytdl_data = ytdl.extract_info(link, download=True)
             file_name = ytdl.prepare_filename(ytdl_data)
     except Exception as e:
-        return await msg.edit(f"🚫 **Eʀʀᴏʀ:** {e}")
+        return await msg.edit(f"🚫 **𝕰𝖗𝖗𝖔𝖗:** {e}")
     preview = wget.download(thumbnail)
-    await msg.edit("📤 **Uᴘʟᴏᴀᴅɪɴɢ Vɪᴅᴇᴏ...**")
+    await msg.edit("📤 **𝖀𝖕𝖑𝖔𝖆𝖉𝖎𝖓𝖌 𝖛𝖎𝖉𝖊𝖔...**")
     await message.reply_video(
         file_name,
         duration=int(ytdl_data["duration"]),
@@ -272,20 +138,19 @@ async def vsong(client, message):
     except Exception as e:
         print(e)
 
-# Roses are red, Violets are blue, A face like yours, Belongs in a zoo.
 
 @Client.on_message(command(["lyric", f"lyric@{bn}"]))
 async def lyrics(_, message):
     try:
         if len(message.command) < 2:
-            await message.reply_text("» **Gɪᴠᴇ ʟɪʀɪᴄs ɴᴀᴍᴇ ᴛᴏᴏ.**")
+            await message.reply_text("» **𝕲𝖎𝖛𝖊 𝖑𝖞𝖗𝖎𝖈𝖘 𝖓𝖆𝖒𝖊 𝖙𝖔.**")
             return
         query = message.text.split(None, 1)[1]
-        rep = await message.reply_text("🔎 **Sᴇᴀʀᴄʜɪɴɢ Lʏʀɪᴄs...**")
+        rep = await message.reply_text("🔎 **𝕾𝖊𝖆𝖗𝖈𝖍𝖎𝖓𝖌 𝖑𝖞𝖗𝖎𝖈𝖘...**")
         resp = requests.get(
             f"https://api-tede.herokuapp.com/api/lirik?l={query}"
         ).json()
         result = f"{resp['data']}"
         await rep.edit(result)
     except Exception:
-        await rep.edit("❄1�71ￄ1�77 **Lʏʀɪᴄs ɴᴏᴛ ғᴏᴜɴᴅ.**\n\n» **Pʟᴇᴀsᴇ ɢɪᴠᴇ ᴀ ᴠᴀʟɪᴅ sᴏɴɢ ɴᴀᴍᴇ.**")
+        await rep.edit("❌ **𝕷𝖞𝖗𝖎𝖈𝖘 𝖓𝖔𝖙 𝖋𝖔𝖚𝖓𝖉.**\n\n» **𝕻𝖑𝖊𝖆𝖘𝖊 𝖊𝖓𝖙𝖊𝖗 𝖛𝖆𝖑𝖎𝖉 𝖓𝖆𝖒𝖊...**")

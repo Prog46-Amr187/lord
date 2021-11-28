@@ -4,6 +4,8 @@
 # Owner Asad + Harshit
 
 
+
+
 from pyrogram import Client, errors
 from pyrogram.types import (
     InlineQuery,
@@ -49,6 +51,6 @@ async def inline(client: Client, query: InlineQuery):
             await query.answer(
                 results=answers,
                 cache_time=0,
-                switch_pm_text="error: search timed out",
+                switch_pm_text="**𝕰𝖗𝖗𝖔𝖗: search timed out**",
                 switch_pm_parameter="",
             )
