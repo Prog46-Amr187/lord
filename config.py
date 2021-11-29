@@ -23,10 +23,10 @@ COMMAND_PREFIXES = list(getenv("COMMAND_PREFIXES", "/ ! .").split())
 ALIVE_IMG = getenv("ALIVE_IMG", "https://telegra.ph/file/8f59f7e12b0e1142f8458.jpg")
 DURATION_LIMIT = int(getenv("DURATION_LIMIT", "400"))
 UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/jankarikiduniya/Dr-Music-Video-Streaming")
-IMG_1 = getenv("IMG_1", "https://telegra.ph/file/26daf89c656e7892ce54a.jpg")
-IMG_2 = getenv("IMG_2", "https://telegra.ph/file/ee3507c92d816a0a92182.jpg")
-IMG_3 = getenv("IMG_3", "https://telegra.ph/file/26daf89c656e7892ce54a.jpg")
-IMG_4 = getenv("IMG_4", "https://telegra.ph/file/ee3507c92d816a0a92182.jpg")
+IMG_1 = getenv("IMG_1", "https://telegra.ph/file/682408ad236ccfa85ebed.jpg")
+IMG_2 = getenv("IMG_2", "https://telegra.ph/file/26daf89c656e7892ce54a.jpg")
+IMG_3 = getenv("IMG_3", "https://telegra.ph/file/682408ad236ccfa85ebed.jpg")
+IMG_4 = getenv("IMG_4", "https://telegra.ph/file/26daf89c656e7892ce54a.jpg")
 
 # Don't Change It Bro ❣️ 😂
 
