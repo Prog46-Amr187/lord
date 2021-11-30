@@ -32,7 +32,7 @@ IMG_4 = getenv("IMG_4", "https://telegra.ph/file/ac2edb4b0c165ce254119.jpg")
 
 
 MY_SERVER = getenv("MY_SERVER", "GI18H")
-REPO_OWNER = getenv("REPO_OWNER", "JAI6H")
+REPO_OWNER = getenv("REPO_OWNER", "Prog46-Amr187/Music")
 MY_HEART = getenv("MY_HEART", "uu_ak0")
 BOT_UPDATE = getenv("BOT_UPDATE", "ct_gold")
 MY_BRO = getenv("MY_BRO", "JAI6H")
