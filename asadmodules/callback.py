@@ -98,7 +98,7 @@ async def cbguides(_, query: CallbackQuery):
 ► /restart - عمل ريستارت للبوت
 ► /leaveall - خروج البوت من جميع المجموعات
 
-🚦 جميع الاوامر تخص {BOT_NAME} A.I__""",
+🚦 تم تعديل وتعريب البوت من {OWNER_NAME} .__""",
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton("رجوع للخلف", callback_data="cbstart")]]
         ),
