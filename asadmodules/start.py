@@ -94,7 +94,7 @@ async def start_(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "- قناه السورس .", url="https://t.me/akja0"
+                        "- قناه السورس .", url="https://t.me/roottuxido"
                     )
                 ],
             ]
@@ -144,7 +144,7 @@ async def ping_pong(client: Client, message: Message):
     start = time()
     m_reply = await message.reply_text("**ɢᴇᴛᴛɪɴɢ ʜᴇʟᴘ ᴍᴇɴᴜ**...")
     delta_ping = time() - start
-    await m_reply.edit_text("🔻 **اضفني في مجموعتك**\n🔻️ **قم برفعي مشرف في المجموعه**\n🔻 **ارسل امر /join في المجموعه**\n🔻 **قم بكتابه /play واسم الاغنيه او /vplay  واسم الفديو**\n🔻 ** قناه البوت** @AKJA0**")
+    await m_reply.edit_text("🔻 **اضفني في مجموعتك**\n🔻️ **قم برفعي مشرف في المجموعه**\n🔻 **ارسل امر /join في المجموعه**\n🔻 **قم بكتابه /play واسم الاغنيه او /vplay  واسم الفديو**\n🔻 ** قناه البوت** @roottuxido**")
 
 
 @Client.on_message(command(["uptime<", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
