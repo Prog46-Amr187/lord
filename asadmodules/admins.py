@@ -61,7 +61,7 @@ async def skip(client, m: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("- Rino .️", url=f"https://t.me/JAI6H"),
+                InlineKeyboardButton("- Rino .️", url=f"https://t.me/libcubehawk"),
                 InlineKeyboardButton("- Channel .", url=f"https://t.me/roottuxido"),
             ]
         ]
